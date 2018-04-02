@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+.vagrant
+*.fdf
+.eslintcache
+.cache-loader
+node_modules
+.version_temp
+.metadata
+.vscode
+
+keys/*
+tokens/*
+package-lock.json

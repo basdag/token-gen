@@ -1,0 +1,24 @@
+{
+    "name": "token",
+    "version": "0.0.2",
+    "description": "Generate a token with openssl",
+    "preferGlobal": "true",
+    "scripts": {
+        "token": "node tokengen.js"
+    },
+    "author": "Liz Lovero",
+    "dependencies": {
+        "fs": "0.0.1-security",
+        "jsonwebtoken": "^7.4.3"
+    },
+    "engines": {
+        "node": "*"
+    },
+    "license": {
+
+    },
+    "repository" :{
+        "type" : "git",
+         "url" : "https://github.com/lizlove/token-gen.git"
+    }
+}
