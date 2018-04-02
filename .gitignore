@@ -12,3 +12,4 @@ node_modules
 keys/*
 tokens/*
 package-lock.json
+node_modules
