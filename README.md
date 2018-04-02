@@ -50,7 +50,7 @@ A `.gitignore` file is included in the repo that will prevent keys from being sa
 
 ### Marvel in your handiwork
 
-![Token in command line](https://raw.githubusercontent.com/lizlove/token-gen/master/token.png)
+![Token in command line](https://raw.githubusercontent.com/lizlove/token-gen/master/tokenimg.png)
 
 
 ## The End
