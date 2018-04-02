@@ -38,14 +38,11 @@ token
 
 #### TODO
 + Change the filename in tokengen.js to change manually
-+ Create Private key script to take in private key and spit out public key in /public_key file
-+ Automate editing the public key to replace new lines with \n
-+ Where should the public key be stored long-term
 
 
 ### Marvel in your handiwork
 
-![Token in command line](https://raw.githubusercontent.com/lizlove/token/master/token.png)
+![Token in command line](https://raw.githubusercontent.com/lizlove/token-gen/master/token.png)
 
 
 ## The End
