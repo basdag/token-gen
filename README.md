@@ -29,21 +29,22 @@ openssl rsa -pubout -in ./keys/<CLIENTNAME>_private_key.pem -out ./keys/<CLIENTN
 
 ### Make the Token
 
-First run `npm install` in this directory to install the jsonwebtoken package. Next run `npm link` to set up the script.
+First run `npm install` in this directory to install the jsonwebtoken package.
+Either generate a key pair using the scripts above, or save a private key in the `./keys` directory in this repo.
 
-Run `token <CLIENTNAME>` to generate a token. The generated token will be saved to the `/tokens` file.
+Run `npm run token <CLIENTNAME>` to generate a token. The generated token will be saved to the `/tokens` file.
 ```
-token BEST_EVER_CLIENT
+npm run token BEST_EVER_CLIENT
 ```
 
-#### TODO
-+ Change the filename in tokengen.js to change manually
+## Safety Note
 
+Please only save this key locally. *NEVER STORE KEYS ON GITHUB!*
+A `.gitignore` file is included in the repo that will prevent keys from being saved in GITHUB. But still... be careful!
 
 ### Marvel in your handiwork
 
 ![Token in command line](https://raw.githubusercontent.com/lizlove/token-gen/master/token.png)
-
 
 ## The End
 
