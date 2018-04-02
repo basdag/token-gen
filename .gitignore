@@ -10,6 +10,8 @@ node_modules
 .vscode
 
 keys/*
+!keys/.gitkeep
 tokens/*
+!tokens/.gitkeep 
 package-lock.json
 node_modules
