@@ -18,22 +18,22 @@ Clone or download OpenSSL repo from [Github](https://github.com/openssl/openssl)
 From inside the token directory generate an RSA key pair with a 2048 bit private key.
 Cmd:
 ```
-openssl genpkey -algorithm RSA -out ./<CLIENTNAME>_private_key.pem -pkeyopt rsa_keygen_bits:2048
+openssl genpkey -algorithm RSA -out ./keys/<CLIENTNAME>_private_key.pem -pkeyopt rsa_keygen_bits:2048
 ```
 
 Extract the public key from the RSA keypair.
 Cmd:
 ```
-openssl rsa -pubout -in ./<CLIENTNAME>_private_key.pem -out ./temp/<CLIENTNAME>_public_key.pub
+openssl rsa -pubout -in ./keys/<CLIENTNAME>_private_key.pem -out ./keys/<CLIENTNAME>_public_key.pub
 ```
 
 ### Make the Token
 
 First run `npm install` in this directory to install the jsonwebtoken package. Next run `npm link` to set up the script.
 
-Run `token` to generate a token. It token will be saved to the `/tokens` file.
+Run `token <CLIENTNAME>` to generate a token. The generated token will be saved to the `/tokens` file.
 ```
-token
+token BEST_EVER_CLIENT
 ```
 
 #### TODO

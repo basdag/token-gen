@@ -1,21 +1,35 @@
 #! /usr/bin/env node
 
-var jwt = require('jsonwebtoken');
-var fs = require('fs');
-var filename = process.argv.slice(2);
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
+let clientname = process.argv.slice(2);
 
-function getFilename() {
-    console.log(filename, 'Success');
-    // return console.log('Please enter the file name of the private key you wish to use to generate the token.\n(This file should be stored in the `keys` folder in this repo.)\nEx: BEST_EVER_CLIENT_private_key.pem');
+function generateFilename() {
+    if (!clientname.length) {
+        return console.log('ERROR: To run this script, please provide a client name that matches a key in the keys folder.\nEx: npm run token COOL_CLIENT');
+    } else {
+        clientname = clientname[0].trim();
+        let tokenFile = `./tokens/${clientname}_token.txt`;
+        if (fs.existsSync(tokenFile)) {
+            return console.log('ERROR: Token already exists.');
+        }
+
+        let keyFile = `./keys/${clientname}_private_key.pem`;
+        if (!fs.existsSync(keyFile)) {
+            return console.log("ERROR: Key file not found. Please provide a key in the keys folder.");
+        }
+
+        let privateKey = fs.readFileSync(keyFile, 'utf-8');
+        let token = jwt.sign({}, privateKey, {
+            algorithm: 'RS256'
+        });
+        fs.writeFile(tokenFile, token, function (err) {
+            if (err) {
+                return console.log('ERROR: Token generation failed.', err);
+            }
+            return console.log(`SUCCESS: ${clientname}_token.txt was saved.\n=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=`);
+        });
+    }
 }
-// var privateKey = fs.readFileSync('./private_key_stride.pem', 'utf-8');
-// var token = jwt.sign({}, privateKey, { algorithm: 'RS256' });
-//
-// fs.writeFile(`tokens/${name}`, "Hey there!", function(err) {
-//     if(err) {
-//         return console.log(err);
-//     }
-//
-//     console.log("The file was saved!");
-// });
-getFilename();
+
+generateFilename();
